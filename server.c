@@ -96,6 +96,8 @@ int main(int argc, char *argv[])
     int listenfd, port, clientlen, nthreads, connfd;
     struct sockaddr_in clientaddr;
     getargs(&port, &nthreads, argc, argv);
+    if(nthreads<0) 
+      exit(1);
     pthread_t *tids = (pthread_t*)malloc(sizeof(pthread_t)*nthreads);
     count = 0;
     head = 0;
